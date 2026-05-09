@@ -1,0 +1,5 @@
+# Default configuration settings
+timeout: 30
+max_retries: 3
+log_level: INFO
+environment: production
