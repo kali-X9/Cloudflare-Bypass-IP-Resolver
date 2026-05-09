@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudflare-bypass-tool"
+version = "1.0.0"
+description = "Enterprise-grade network reconnaissance tool for security professionals"
+authors = [{name = "DevSecOps Team"}]
+license = {text = "MIT"}
+readme = "README.md"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Security",
+    "Topic :: System :: Networking"
+]
+requires-python = ">=3.9"
+dependencies = [
+    "aiohttp>=3.8.0,<4.0.0",
+    "PyYAML>=6.0,<7.0.0",
+    "requests>=2.28.0,<3.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0,<8.0.0",
+    "pytest-asyncio>=0.20.0,<1.0.0",
+    "black>=22.0.0,<23.0.0",
+    "flake8>=5.0.0,<6.0.0"
+]
+
+[project.scripts]
+cfbypass = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "strict"
